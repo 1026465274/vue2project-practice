@@ -1,19 +1,19 @@
 <template>
   <div class='home_content'>
 
-    <item  fatherComponent = "home"></item>
+    <ItemIndex  fatherComponent = "home"></ItemIndex>
   </div>
 </template>
 
 
 <script> 
 
-import Item from "@/components/Item.vue"
+import ItemIndex from "@/components/ItemIndex.vue"
 
 export default {
   name:"home",
   components: {
-    Item
+    ItemIndex
   },
   
 
