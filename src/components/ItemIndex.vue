@@ -21,6 +21,7 @@
 				 </ul>
 				  </div>
 
+
 				 <span class="next_item button_style" @click="nextItem()"> </span>	
 
 
@@ -55,18 +56,20 @@ export default {
 		'level'
 	])},
    methods: {
-     ...mapActions([
-  		]),
+     ...mapActions(
+			"addNum"
+		 ),
 			
 	  choosed(num,id){
 		this.choosedId = id;
 		this.choosedNum = num;
-		console.log(num,id)
+		console.log(num,id);
 	},
 
 	 nextItem(){
 		 if(this.choosedNum != null){
-			
+			 this.choosedNum = null;
+			this.addNum(this.choosedId);
 		 }else{
 			 alert("请选择一个答案！")
 		 }
