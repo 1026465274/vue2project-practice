@@ -1,18 +1,18 @@
-import  Vue from 'vue'
+import Vue from 'vue'
 import Vuex from 'vuex'
-import mutation from  './mutation'
-import action  from './action'
+import mutations from './mutations'
+import actions from './action'
+// import ajax from '../config/ajax'
 
 
-
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 const state = {
-  level: '第一周', //活动周数
+	level: '第一周', //活动周数
 	itemNum: 1, // 第几题
 	allTime: 0,  //总共用时
 	timer: '', //定时器
-  itemDetail: [{
+	itemDetail: [{
 		"topic_id": 20,
 		"active_topic_id": 4,
 		"type": "ONE",
@@ -168,13 +168,11 @@ const state = {
 			"is_standard_answer": 0
 		}]
 	}],
+	answerid: [], //答案id
 }
 
-
-
-export default  new Vuex.Store({
-  state,
-	mutation,
-  action
-
+export default new Vuex.Store({
+	state,
+	actions,
+	mutations,
 })

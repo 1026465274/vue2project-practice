@@ -22,7 +22,9 @@
 				  </div>
 
 
-				 <span class="next_item button_style" @click="nextItem()"> </span>	
+				 <span class="next_item button_style" v-if="itemNum <itemDetail.length" @click="nextItem()"> </span>
+				 <span class="submit_item button_style"  v-else @click="submitAnswer"></span>
+				
 
 
 
@@ -53,12 +55,14 @@ export default {
   computed:{...mapState([
 		'itemDetail',
 		'itemNum', 
-		'level'
+		'level',
+		'timer'
 	])},
    methods: {
-     ...mapActions(
-			"addNum"
-		 ),
+     ...mapActions([
+			"addNum",
+			"initializeData"
+		 ]),
 			
 	  choosed(num,id){
 		this.choosedId = id;
@@ -73,13 +77,25 @@ export default {
 		 }else{
 			 alert("请选择一个答案！")
 		 }
-	 }
+	 },
+	 	
+	 submitAnswer(){
+		 	if(this.choosedNum !== null){
+				 debugger
+				 this.addNum(this.choosedId);
+				 console.log(this.$store.state.allTime);
+				 clearInterval(this.timer);
+				 this.$router.push('score');
+			 }
+	   },
    },
+
+
 
    created(){
     //  初始化
     if(this.fatherComponent == 'home'){
-
+         this.initializeData();
     }
    }
 }

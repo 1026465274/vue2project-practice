@@ -11,7 +11,6 @@
 
 import ItemIndex from "@/components/ItemIndex.vue"
 
-
 export default {
   setup() {
     
@@ -21,7 +20,7 @@ export default {
     ItemIndex
   },
   created(){
-
+    this.$store.commit("REMBER_TIME");
   }
 
 }
